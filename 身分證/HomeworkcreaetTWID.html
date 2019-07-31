@@ -1,0 +1,93 @@
+<script src="HomeworkcreaetTWID.js"></script>
+
+<script>
+    function check(){
+        let gender = document.getElementById('gender').value;  //gender的id
+        let area = document.getElementById('area').value; //area的id
+        //let test = document.getElementById('tset');  //輸出的id
+        
+        let randgender; //判斷使用者輸入為男性,女性 或 預設隨機
+        let letter = 'ABCDEFGHJKLMNPQRSTUVWXYZIO'
+
+        if (gender == '女性'){
+            randgender = 2;
+        
+        }else if(gender == '男性'){
+            randgender = 1; 
+        }else{
+            randgender = parseInt((Math.random()*2)+1);
+        }
+    
+        
+        let randarea = checkIEIDv3(area);
+        let sum;
+
+        let n1 = parseInt(randarea / 10);  //n1
+        let n2 = parseInt(randarea % 10);  //n2
+        let n3 = randgender; //n3 男女
+        
+        let n4; 
+        let n5;
+        let n6;
+        let n7;
+        let n8;
+        let n9;
+        let n10;
+        let n11;
+    
+        do{
+            n4 = parseInt(Math.random()*10); //0~9
+            n5 = parseInt(Math.random()*10);
+            n6 = parseInt(Math.random()*10);
+            n7 = parseInt(Math.random()*10);
+            n8 = parseInt(Math.random()*10);
+            n9 = parseInt(Math.random()*10);
+            n10 = parseInt(Math.random()*10);
+            n11 = parseInt(Math.random()*10);
+
+            sum = n1*1 + n2*9 + n3*8 + n4*7 + n5*6 + n6*5 + n7*4 + n8*3 + n9*2 +
+            n10*1 + n11*1;
+
+        }while((sum % 10) != 0);
+
+        English = letter.charAt(randarea - 10);
+    
+        let nowNumber = English + n3.toString() + n4.toString() + n5.toString() +
+            n6.toString() + n7.toString() + n8.toString() + n9.toString() +
+            n10.toString() + n11.toString();
+
+
+
+        //test.innerHTML = document.write(nowNumber);
+       document.getElementById('tset').innerHTML = nowNumber;
+
+    }
+
+
+
+</script>
+
+
+<form>
+    身分證字號產生器<br>
+    <br>
+    選擇地區
+    <form>
+        <input type="text" id='area' placeholder="隨機" value="隨機"><br>
+        臺北市,臺中市,基隆市,臺南市,高雄市,新北市,宜蘭縣,桃園市,嘉義市,新竹縣,苗栗縣<br>
+        南投縣,彰化縣,新竹市,雲林縣,嘉義縣,屏東縣,花蓮縣,臺東縣,金門縣,澎湖縣,連江縣<br>
+        臺中縣,臺南縣,高雄縣,陽明山管理局.....<br>
+
+    </form>
+    <form>
+    選擇性別<br>
+    <br>
+    Gender : 
+    <input type="text" id='gender' placeholder="隨機" value="隨機">男性,女性<br>
+    <hr>
+    <input type="button" id='' onclick="check()" value="Enter">
+    <span id='tset'></span><br>
+    
+    </form>
+    
+</form>
